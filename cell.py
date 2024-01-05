@@ -90,9 +90,21 @@ class Cell:
             if Cell.cell_count_label_object:
                 Cell.cell_count_label_object.configure(
                     text = f'Cells Left: {Cell.cell_count}')
+                
+        # For safety change the background color to SystemButtonFace 
+        # in the case the cell was marked as a candidate
+        self.cell_btn_object.configure(
+            bg = 'SystemButtonFace'
+        )
 
         # Set is_opened to true    
         self.is_opened = True
+
+        # Unbind the events from the cell if it is opened.
+        # For example to prevent making a opened cell orange
+
+        self.cell_btn_object.unbind('<Button-1>') # Left click
+        self.cell_btn_object.unbind('<Button-3>') # Right click
 
     def show_mine(self):
         self.cell_btn_object.config(bg = 'red')
