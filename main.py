@@ -19,6 +19,19 @@ top_frame = Frame(root,
             )
 top_frame.place(x=0, y=0)
 
+# Create a label for game title
+game_title = Label(
+    top_frame,
+    bg = 'black',
+    fg = 'white',
+    text = 'Minesweepr Game',
+    font = ('', 48)
+)
+game_title.place(
+    x = utils.width_prct(25),
+    y = 0
+)
+
 # Create and configure left frame
 left_frame = Frame(
     root,

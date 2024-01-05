@@ -50,6 +50,14 @@ class Cell:
                 for cell_obj in self.surrounded_cells:
                     cell_obj.show_cell()
             self.show_cell()
+        # If Mines count is equal to the cells left count, player won
+            if Cell.cell_count == settings.MINES_COUNT:
+                ctypes.windll.user32.MessageBoxW(
+                    0,
+                    'Congratulations! You won the Game.', 
+                    'Game Over',
+                     0)
+                sys.exit()
 
     def get_cell_by_axis(self, x, y):
         # Return a cell object based on the value of x, y
