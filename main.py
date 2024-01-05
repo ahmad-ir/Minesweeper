@@ -5,8 +5,8 @@ import utils
 
 root = Tk()
 
-# Override the setting of window
-root.configure(bg='black')
+# Override the setting of the window
+root.configure(bg = 'black')
 root.geometry(f'{settings.WIDTH}x{settings.HEIGHT}')
 root.title('Minesweeper Game')
 root.resizable(False, False)
@@ -16,7 +16,7 @@ top_frame = Frame(root,
                   bg = 'black',
                   width = settings.WIDTH, 
                   height = utils.height_prct(25)
-)
+            )
 top_frame.place(x=0, y=0)
 
 # Create and configure left frame
@@ -49,10 +49,15 @@ for x in range(settings.GRID_SIZE):
             row = y
         )
 
+# Create mine count label object
+Cell.create_cell_count_label(left_frame)
+Cell.cell_count_label_object.place(
+    x=0,
+    y=0
+)
+
 # Call static method
 Cell.randomize_mines()
-for c in Cell.all:
-    print(c.is_mine)
 
 # Run the window
 root.mainloop()
