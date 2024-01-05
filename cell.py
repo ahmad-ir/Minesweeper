@@ -1,6 +1,9 @@
 from tkinter import Button, Label
 import random
 import settings
+import ctypes
+import sys
+
 
 class Cell:
     all = []
@@ -92,8 +95,10 @@ class Cell:
         self.is_opened = True
 
     def show_mine(self):
-        # A logic to interrupt the game and show a message that the player lost
         self.cell_btn_object.config(bg = 'red')
+        ctypes.windll.user32.MessageBoxW(
+            0, 'You clicked on a mine', 'Game Over', 0)
+        sys.exit()
 
     def right_click_actions(self, event):
         if not self.is_mine_candidate:
