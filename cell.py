@@ -25,7 +25,6 @@ class Cell:
             location,
             width = 12,
             height = 4
-            # text = f'{self.x}, {self.y}'
         )
         btn.bind('<Button-1>', self.left_click_actions) # Left click
         btn.bind('<Button-3>', self.right_click_actions) # Right click
@@ -110,7 +109,6 @@ class Cell:
 
         # Unbind the events from the cell if it is opened.
         # For example to prevent making a opened cell orange
-
         self.cell_btn_object.unbind('<Button-1>') # Left click
         self.cell_btn_object.unbind('<Button-3>') # Right click
 
